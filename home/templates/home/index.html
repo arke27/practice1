@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,11 @@
 
     </style>
 </head>
-<body>
+<body> -->
+
+    {% extends "base.html" %}
+    {% block start %}
+
     <h1> This is index page</h1>
     
     <a href="/contact/">
@@ -56,5 +60,7 @@
         {% endif %}
             No available
       </p>
-</body>
-</html>
+
+    {% endblock %}
+<!-- </body>
+</html> -->

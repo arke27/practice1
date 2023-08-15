@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,15 +12,21 @@
 
     </style>
 </head>
-<body>
+<body> -->
+
+    {% extends "base.html" %}
+    {% block start %}
+
     <h1> This is about page</h1>
 
-    <a href="/home/">
+    <a href="/">
         Home
     </a>
 
     <a href="/contact/">
         Contact
     </a>
-</body>
-</html>
+
+    {% endblock %}
+<!-- </body>
+</html> -->
