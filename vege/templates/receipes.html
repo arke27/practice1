@@ -2,6 +2,10 @@
 {% extends "base.html" %}
     {% block start %}
 
+      <!-- Note : CREATE opertaion in CRUD
+        here we can create form to insert data from front side(from receipes.html) to backend (in model),
+      in form imp is name attribute, we used these attribute in view -->
+
     <div class="container mt-5">
 
         <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
@@ -26,6 +30,28 @@
             <button type="submit" class="btn btn-success">Add Receipe</button>
           </form>
 
+          <hr>
+
+          <!-- Note : Search operation -->
+          <div class="mt-5">
+            <div class="mx-auto col-6">
+              <form>
+                <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Search Food</label>
+                <input name="search"  type="text" class="form-control">
+              
+                </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+              </form>
+            </div>
+          </div>
+          
+    
+    <hr>
+
+
+          <!-- Note : READ  operation in CRUD
+            here we can create table to display data from backend (from model) to front side (receipes.html) -->
 
           <table class="table">
             <thead>
@@ -34,6 +60,8 @@
                 <th scope="col">Receipe Name</th>
                 <th scope="col">Receipe Desc</th>
                 <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+
               </tr>
             </thead>
             <tbody>
@@ -44,7 +72,16 @@
                 <td>{{receipe.receipe_name}}</td>
                 <td>{{receipe.receipe_description}}</td>
                 <td>
-                  <img src="/media/{{receipe.receipe_image}}"></td>
+                  <img src="/media/{{receipe.receipe_image}}" style="height: 100px">
+                </td>
+          <!-- Note : DELETE operation in CRUD -->
+                <td>
+                  <a href="/delete-receipe/{{receipe.id}}/" class="btn btn-danger">Delete</a>
+          
+          <!-- Note : UPDATE operation in CRUD -->
+                  <a href="/update-receipe/{{receipe.id}}/" class="btn btn-success">Update</a>
+                </td>
+
               </tr>
               {% endfor %}
             </tbody>

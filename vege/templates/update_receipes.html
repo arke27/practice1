@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+    {% block start %}
+
+      <!-- Note : UPDATE opertaion in CRUD
+        here we can create form to update data from front side(from receipes.html update link) to backend (in model),
+        in form imp is value attribute("receipe" from view and "receipe_name" from model), we used these attribute
+         in view -->
+
+    <div class="container mt-5">
+
+        <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <h2>Update Receipe</h2>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Receipe Name</label>
+              <input name="receipe_name" value="{{receipe.receipe_name}}"  required type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Receipe Description</label>
+              <textarea name="receipe_description" value="" required class="form-control">{{receipe.receipe_description}}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Receipe Image</label>
+                <input name="receipe_image" type="file" class="form-control">
+              </div>
+
+            <button type="submit" class="btn btn-success">Update Receipe</button>
+          </form>
+
+    </div>
+
+    {% endblock %}

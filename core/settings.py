@@ -45,7 +45,8 @@ INSTALLED_APPS = [
 
 # EXTERNAL_APPS = [
 #     'accounts',
-#     'home'
+#     'home',
+#     'veg'  
 # ]
 
 # INSTALLED_APPS += EXTERNAL_APPS
@@ -127,6 +128,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# this is imp and fixed setting for media like images
 import os
 
 STATIC_URL = '/static/'
