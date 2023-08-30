@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # Note : CREATE operation in CRUD
 # in these business logic we can get data fron front end side ( from receies.html : from form) 
@@ -152,3 +153,14 @@ def register(request):
     return render(request,'register.html')
 
 
+def get_students(request):
+    queryset = Student.objects.all()
+
+    
+
+    paginator = Paginator(queryset, 5)  # Show 25 contacts per page.
+
+    page_number = request.GET.get("page",1)
+    page_obj = paginator.get_page(page_number)
+    print(page_obj)
+    return render(request,'report/students.html',{'queryset':page_obj})
