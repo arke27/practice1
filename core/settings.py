@@ -38,13 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'home'
+    'home',
+    'vege'
 ]
 
 
 # EXTERNAL_APPS = [
 #     'accounts',
-#     'home'
+#     'home',
+#     'veg'  
 # ]
 
 # INSTALLED_APPS += EXTERNAL_APPS
@@ -126,7 +128,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# this is imp and fixed setting for media like images
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+STATICFILES_DIR = {
+    os.path.join(BASE_DIR,"public/static")
+
+}
+MEDIA_ROOT = os.path.join(BASE_DIR,'public/static')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
