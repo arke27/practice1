@@ -43,3 +43,17 @@ def seed_db(n=10)->None:
             )
     except Exception as e:
         print(e)
+
+#  here we are writing script for rank generation
+from django.db.models import Sum
+
+def generate_report_card():
+    current_rank = -1
+    ranks = Student.objects.annotate(marks = Sum('studentmarks__marks')).order_by('-marks','-student_age')
+
+    i = 1
+    for rank in ranks:
+        if student_id == rank.student_id.student_id:
+            current_rank = i
+            break
+        i = i+1

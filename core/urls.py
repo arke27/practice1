@@ -38,6 +38,9 @@ urlpatterns = [
     path("logout/", logout_page, name="logout_page"),
 
     path('students/',get_students, name="get_students"),
+    path('see_marks/<student_id>/',see_marks, name="see_marks"),
+
+
 
 
 
